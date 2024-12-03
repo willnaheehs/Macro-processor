@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Errors: Missing {NAME}
+#         Missing {VALUE}
+#         Missing {VALUE2}
+#         Missing {FILENAME}
+	   
+# Missing {NAME}
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\def {name}{value}
+END
+
+# Missing {VALUE}
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\def{name} {value}
+END
+
+# Missing {ELSE}
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\ifdef{name}{value} {else}
+END
+
+# Missing {ELSE}
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\if{name}{value} {else}
+END
+
+# Missing {FILENAME}
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\include {value}
+END

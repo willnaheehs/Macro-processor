@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Is all storage reachable?
+#   Errors: {ARG} is not brace-balanced (Test #06)
+#   \def: Deeply nested braces in VALUE/ARG (Test #07)
+
+TESTS=/c/cs323/proj1/tests
+LOST=/c/cs323/bin/lost
+
+# Errors: {ARG} is not brace-balanced
+$LOST ./proj1 <<END
+\def{name}{value}\name{{arg}
+END
+
+echo -----
+
+# \def: Deeply nested braces in VALUE/ARG
+$LOST ./proj1 <<END
+\def{a}{#}
+\def{b}{{#}}
+\def{c}{{{#}}}
+\def{d}{{#}{#}}
+\def{e}{{{{#}}}}
+\def{f}{{{#}{#}}}
+\def{g}{{{#}}{#}}
+\def{h}{{#}{{#}}}
+\def{i}{{#}{#}{#}}
+
+\a{a}
+\b{{b}}
+\c{{{c}}}
+\d{{d}{d}}
+\e{{{{e}}}}
+\f{{{f}{f}}}
+\g{{{g}}{g}}
+\h{{h}{{h}}}
+\i{{i}{i}{i}}
+END
+
+echo -----
+
+# Repeat Tests #06 and #07 to ensure functioning code
+$TESTS/t06
+echo -----
+$TESTS/t07

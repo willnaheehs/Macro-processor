@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Macroexpansion:
+#   foreach macro
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\def{foreach}{\ifdef{endfor}{}{\def{endfor}{.}}\ifdef{#endfor}{}{#, \foreach}}
+\foreach{}1
+\foreach{1}{}2
+\foreach{1}{2}{}3
+\foreach{1}{2}{3}{}4
+\foreach{1}{2}{3}{4}{}5
+\foreach{1}{2}{3}{4}{5}{}6
+\foreach{1}{2}{3}{4}{5}{6}{}7
+\foreach{1}{2}{3}{4}{5}{6}{7}{}8
+\foreach{1}{2}{3}{4}{5}{6}{7}{8}{}9
+\foreach{1}{2}{3}{4}{5}{6}{7}{8}{9}{}10
+END
+
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\def{foreach}{\if{#}{#, \foreach}{}}
+\foreach{}1
+\foreach{1}{}2
+\foreach{1}{2}{}3
+\foreach{1}{2}{3}{}4
+\foreach{1}{2}{3}{4}{}5
+\foreach{1}{2}{3}{4}{5}{}6
+\foreach{1}{2}{3}{4}{5}{6}{}7
+\foreach{1}{2}{3}{4}{5}{6}{7}{}8
+\foreach{1}{2}{3}{4}{5}{6}{7}{8}{}9
+\foreach{1}{2}{3}{4}{5}{6}{7}{8}{9}{}10
+END

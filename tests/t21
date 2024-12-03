@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Macroexpansion:
+#  VALUE contains macro that later changes
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\def{Animal}{#ardvark}
+\def{Zoo}{\Animal{#}}
+An \Zoo{a} eats ants.
+\undef{Animal}
+\def{Animal}{#nteater}
+An \Zoo{a} eats ants, too.
+END

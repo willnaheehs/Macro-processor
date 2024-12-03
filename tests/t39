@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Include: DEF or MACRO extends beyond end of file
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\include{/c/cs323/proj1/tests/t39a}beri}
+\disease{-}
+
+\include{/c/cs323/proj1/tests/t39b}-}
+END

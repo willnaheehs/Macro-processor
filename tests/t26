@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Errors: MACRO not defined macro
+
+# MACRO not defined macro (error)
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\anUndefinedMacro{is a meaningless concept}
+END

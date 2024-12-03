@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Errors: Attempt to def defined macro
+
+(/usr/bin/valgrind -q ./proj1 <<'END' >/dev/null) |& /usr/bin/wc -l
+\def{A}{aardvark}
+\def{A}{anteater}
+END

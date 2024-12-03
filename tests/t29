@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Expandafter: BEFORE and expand(AFTER') are expanded together
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\def{aardvark}{anteater}\def{wolf}{vark}\expandafter{\aard}{\wolf{}}{}
+END

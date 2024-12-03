@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Comments: Following line empty or only blanks/tabs
+
+/bin/echo -e "Now is the time%\n\nfor all good parties%\n    \nto come to the aid%\n\t\t\t\t\nof man." | \
+  cat -vet
+
+echo -----
+
+/bin/echo -e "Now is the time%\n\nfor all good parties%\n    \nto come to the aid%\n\t\t\t\t\nof man." | \
+  /usr/bin/valgrind -q ./proj1

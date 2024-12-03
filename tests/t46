@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Escape: # vs. \# vs. \\# in VALUE
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\def{A}{#} \def{B}{\#} \def{C}{\\#}
+\A{alpha} \B{beta} \C{gamma}
+END

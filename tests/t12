@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Include: Simple file with no macros
+
+/usr/bin/valgrind -q ./proj1 <<END
+INCLUDE simple file with no macros
+
+\include{/c/cs323/proj1/tests/t01x}
+
+Did we include the file?
+END

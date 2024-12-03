@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# \expandafter: Simple case
+
+/usr/bin/valgrind -q ./proj1 <<END
+\def{A}{aardvark}
+\expandafter{\undef{A}\def{A}{anteater}}{\A{}} != \A{}
+END

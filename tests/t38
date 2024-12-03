@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Include: Many includes (files closed?)
+
+# check for mem errors here
+/usr/bin/valgrind -q ./proj1 > /dev/null <<'END'
+0:\include{/c/cs323/proj1/tests/t38a}
+1:\include{/c/cs323/proj1/tests/t38b}
+2:\include{/c/cs323/proj1/tests/t38c}
+3:\include{/c/cs323/proj1/tests/t38d}
+4:\include{/c/cs323/proj1/tests/t38e}
+5:\include{/c/cs323/proj1/tests/t38f}
+6:\include{/c/cs323/proj1/tests/t38g}
+7:\include{/c/cs323/proj1/tests/t38h}
+8:\include{/c/cs323/proj1/tests/t38i}
+9:\include{/c/cs323/proj1/tests/t38j}
+0:\include{/c/cs323/proj1/tests/t38a}
+1:\include{/c/cs323/proj1/tests/t38b}
+2:\include{/c/cs323/proj1/tests/t38c}
+3:\include{/c/cs323/proj1/tests/t38d}
+4:\include{/c/cs323/proj1/tests/t38e}
+5:\include{/c/cs323/proj1/tests/t38f}
+6:\include{/c/cs323/proj1/tests/t38g}
+7:\include{/c/cs323/proj1/tests/t38h}
+8:\include{/c/cs323/proj1/tests/t38i}
+9:\include{/c/cs323/proj1/tests/t38j}
+END
+
+ulimit -n 16
+
+# now check for files closed?
+./proj1 <<'END'
+0:\include{/c/cs323/proj1/tests/t38a}
+1:\include{/c/cs323/proj1/tests/t38b}
+2:\include{/c/cs323/proj1/tests/t38c}
+3:\include{/c/cs323/proj1/tests/t38d}
+4:\include{/c/cs323/proj1/tests/t38e}
+5:\include{/c/cs323/proj1/tests/t38f}
+6:\include{/c/cs323/proj1/tests/t38g}
+7:\include{/c/cs323/proj1/tests/t38h}
+8:\include{/c/cs323/proj1/tests/t38i}
+9:\include{/c/cs323/proj1/tests/t38j}
+0:\include{/c/cs323/proj1/tests/t38a}
+1:\include{/c/cs323/proj1/tests/t38b}
+2:\include{/c/cs323/proj1/tests/t38c}
+3:\include{/c/cs323/proj1/tests/t38d}
+4:\include{/c/cs323/proj1/tests/t38e}
+5:\include{/c/cs323/proj1/tests/t38f}
+6:\include{/c/cs323/proj1/tests/t38g}
+7:\include{/c/cs323/proj1/tests/t38h}
+8:\include{/c/cs323/proj1/tests/t38i}
+9:\include{/c/cs323/proj1/tests/t38j}
+END
+

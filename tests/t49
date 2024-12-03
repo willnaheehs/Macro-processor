@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Linear time/space: Very long VALUE field
+
+TESTS=/c/cs323/proj1/tests
+
+$TESTS/t49.pl   100000 | /usr/bin/valgrind -q ./proj1
+
+export MALLOC_MMAP_THRESHOLD_=$((16*1024*1024))
+
+$TESTS/t49.pl  1000000 | LD_PRELOAD=$TESTS/librealloc.so ./proj1
+
+$TESTS/t49.pl 10000000 | LD_PRELOAD=$TESTS/librealloc.so ./proj1
+
+
+# Repeat Test #15 to penalize declaration of large buffers
+$TESTS/t15

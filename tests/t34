@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Expandafter: Expansion of AFTER defines macro used in AFTER
+
+/usr/bin/valgrind -q ./proj1 <<'END'
+\expandafter{\alpha{}}{\def{alpha}{gamma}}
+END

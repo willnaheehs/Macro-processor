@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Linear time/space: Very long macro NAME
+
+TESTS=/c/cs323/proj1/tests
+RUN=/c/cs323/bin/run
+
+$TESTS/t17.pl   100000 | /usr/bin/valgrind -q            ./proj1
+
+export MALLOC_MMAP_THRESHOLD_=$((16*1024*1024))
+
+$TESTS/t17.pl  1000000 | LD_PRELOAD=$TESTS/librealloc.so ./proj1
+
+$TESTS/t17.pl 10000000 | LD_PRELOAD=$TESTS/librealloc.so ./proj1
+
+
+# Repeat Test #15 to penalize declaration of large buffers
+$TESTS/t15
